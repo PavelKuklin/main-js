@@ -30,6 +30,9 @@ const popup = () => {
             switchPopup(gift);
         }
 
+        if (target.matches('.close-btn')) {
+            switchPopup(target.parentElement.parentElement.parentElement);
+        }
         //окно с подарком 
         if (target.closest('.fixed-gift')) {
             giftBtn.style.display = 'none';
