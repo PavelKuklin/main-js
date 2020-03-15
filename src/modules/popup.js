@@ -3,7 +3,9 @@ const popup = () => {
         freeVisitForm = document.getElementById('free_visit_form'),
         callbackForm = document.getElementById('callback_form'),
         gift = document.getElementById('gift'),
-        giftBtn = document.querySelector('.fixed-gift');
+        giftBtn = document.querySelector('.fixed-gift'),
+        errorsWindow = document.getElementById('errors'),
+        successWindow = document.getElementById('thanks');
 
     const switchPopup = (selector) => {
         selector.classList.toggle('show');
@@ -38,6 +40,7 @@ const popup = () => {
             giftBtn.style.display = 'none';
             switchPopup(gift);
         }
+
     };
 
 
