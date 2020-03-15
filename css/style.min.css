@@ -1360,17 +1360,18 @@ nav.popup-menu .close-menu-btn img {
 
 .slider-dots {
     position: absolute;
+    display: flex !important;
     bottom: 50px;
     left: 50%;
     margin-left: -65px;
-    z-index: 1000
+    z-index: 1000;
 }
 
-.slider-dots li {
+/* .slider-dots li {
     float: left
-}
+} */
 
-.slider-dots li button {
+.slider-dots button {
     width: 22px;
     height: 4px;
     background-color: #fff;
@@ -1584,16 +1585,23 @@ nav.popup-menu .close-menu-btn img {
 }
 
 #gallery .gallery-slider {
+    position: relative;
     padding-left: 75px;
     padding-right: 75px;
     max-width: 900px;
     margin: 0 auto;
-    text-align: center
+    text-align: center;
+    min-height: 40vh;
 }
 
 #gallery .gallery-slider .slide {
-    margin: 0 auto!important;
-    width: 100%
+     position: absolute;
+     top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    opacity: 0;
+     transition: opacity .3s;
 }
 
 #gallery .gallery-slider .slider-arrow {
@@ -1623,6 +1631,7 @@ nav.popup-menu .close-menu-btn img {
 }
 
 #gallery .gallery-slider .slider-dots {
+    display: flex !important;
     left: 50%;
     margin-left: -65px;
     bottom: 5%
@@ -2403,10 +2412,6 @@ p.personal-data input[type=checkbox]:checked+label:before {
         padding-left: 10px;
         padding-right: 10px
     }
-    #gallery .gallery-slider .slider-arrow.next,
-    #gallery .gallery-slider .slider-arrow.prev {
-        display: none!important
-    }
     #gallery .gallery-slider .slider-dots {
         background-color: rgba(79, 25, 52, .5);
         padding-top: 12px;
@@ -2580,10 +2585,21 @@ p.personal-data input[type=checkbox]:checked+label:before {
     display: block !important;
 }
 
-.hidden {
-    display: none !important;
+.absolute {
+    position: absolute !important;
+}
+.relative {
+    position: relative !important;
 }
 
 .scroll-hidden {
     overflow: hidden
+}
+
+.slideOpasity {
+    opacity: 1 !important;
+}
+
+.dots-active {
+    background-color: rgb(248, 183, 2) !important;
 }
