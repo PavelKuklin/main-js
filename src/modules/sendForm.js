@@ -17,16 +17,12 @@ const sendForm = (selector) => {
     alert('Необходимо подтвердить согласие на обработку персональных данных');
   }
 
-  form.addEventListener('input', (event) => {
-    if (priceMessage && priceMessage.value.toUpperCase() === 'ТЕЛО2020' && !promo) {
-      priceTotal.textContent = Math.ceil(+priceTotal.textContent * 0.7);
-      promo = true;
-      priceMessage.style.cssText = `
-      opacity: 0;
-      transition: .2s;`
-    }
+  const setTotal = () => {
 
-  });
+  };
+
+  setTotal();
+
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();

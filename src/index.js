@@ -5,6 +5,8 @@ import gallyry from './modules/gallyry';
 import sendForm from './modules/sendForm';
 import services from './modules/services';
 import mycarousel from './modules/myCourusel.js';
+import calc from './modules/calc';
+
 
 popup();
 menu();
@@ -14,8 +16,7 @@ sendForm('#banner-form');
 sendForm('#form1');
 sendForm('#form2');
 sendForm('#footer_form');
-sendForm('#card_order');
 mycarousel();
-
+calc();
 
 services();
