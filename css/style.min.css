@@ -989,12 +989,12 @@ header .head .club-select .clubs-list p {
 }
 
 header .head .club-select .clubs-list ul {
-    display: none;
-    width: 180px;
     position: absolute;
+    display: none;
+    z-index: 9999;
+    width: 180px;
     top: 60px;
     left: 0;
-    z-index: 5000;
     background-color: #381b35;
     padding: 15px;
     border: 1px solid #ffd11a;
@@ -1182,7 +1182,7 @@ nav.popup-menu {
     background-image: linear-gradient(to right, #230a16 0%, #0c0b15 100%);
     height: 100vh;
     width: 100vw;
-    z-index: 6666;
+    z-index: 1500;
     left: 0;
     top: 0
 }
