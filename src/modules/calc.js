@@ -56,14 +56,20 @@ const calc = () => {
         }
       });
     }
-    price = prices[currentClub][currentInput];
+    if (currentClub && currentInput) {
+      price = prices[currentClub][currentInput];
+    }
+
   };
 
   const setPrice = () => {
-    if (priceMessage.value.toUpperCase().trim() === 'ТЕЛО2020') {
+    if (priceMessage && priceMessage.value.toUpperCase().trim() === 'ТЕЛО2020') {
       price = Math.ceil(price * .7);
     }
-    priceTotal.textContent = price;
+    if (priceTotal && textContent) {
+      priceTotal.textContent = price;
+    }
+
   };
 
   const getInfo = () => {
