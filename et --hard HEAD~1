@@ -1,0 +1,119 @@
+[33mcommit 68e83223805f8244e25b622817dc37fbe8b5b916[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: pavelKuklin <pavelkuklinweb@gmail.com>
+Date:   Tue Mar 17 17:50:19 2020 +0500
+
+    исправил косяки с враппером
+
+[33mcommit f69ed48d1c72f9b69cd3d1d46dd19e3f55a88666[m
+Author: pavelKuklin <pavelkuklinweb@gmail.com>
+Date:   Tue Mar 17 16:57:33 2020 +0500
+
+    загрузид фиксы
+
+[33mcommit 21b83c7775484fe5ccc6c123e3cca114c0a6dba7[m
+Author: pavelKuklin <pavelkuklinweb@gmail.com>
+Date:   Tue Mar 17 16:53:38 2020 +0500
+
+    исправил валидацию
+
+[33mcommit 52e26e15fafe7b2e84642abc32414b8f3b00fd84[m
+Author: pavelKuklin <pavelkuklinweb@gmail.com>
+Date:   Tue Mar 17 11:09:45 2020 +0500
+
+    грузим формы
+
+[33mcommit d2f31e87305f0d934350a47277827ca5946b3755[m
+Author: Pavel Kuklin <trb34074@yandeex.ru>
+Date:   Tue Mar 17 07:28:24 2020 +0500
+
+    отправка калькулятор
+
+[33mcommit 32c69cc7275e42708425b16c78e9be05eea3e82e[m
+Author: Pavel Kuklin <trb34074@yandeex.ru>
+Date:   Tue Mar 17 00:18:36 2020 +0500
+
+    сделал калькулятор
+
+[33mcommit 66af76207a6d3ce66a5dac5bc3e75904129a52c8[m
+Author: Pavel Kuklin <trb34074@yandeex.ru>
+Date:   Mon Mar 16 22:15:58 2020 +0500
+
+     карусель
+
+[33mcommit 6fe3c233993972e950204318c23efff0f6e5b069[m
+Author: Pavel Kuklin <trb34074@yandeex.ru>
+Date:   Sun Mar 15 20:12:39 2020 +0500
+
+    часть валидаций и каочяки с страницами
+
+[33mcommit 1709fcf3e8c9339d1e6fc78ae1f4b0132a442ae5[m
+Author: Pavel Kuklin <trb34074@yandeex.ru>
+Date:   Sun Mar 15 14:44:01 2020 +0500
+
+    загрузил слайдер галлереи
+
+[33mcommit b6d71b0c601c4700036c3c82e052c6e094c64003[m
+Author: pavelKuklin <pavelkuklinweb@gmail.com>
+Date:   Fri Mar 13 17:07:15 2020 +0500
+
+    пофиксил главный слайдер
+
+[33mcommit 62d62b0a45d85fe27d0dfe901731e2a0c5a8b841[m
+Author: pavelKuklin <pavelkuklinweb@gmail.com>
+Date:   Fri Mar 13 16:36:19 2020 +0500
+
+    сделал кое что c промо
+
+[33mcommit 1fdd42e313d7cef08ec1d971fbcafc3716f40a9d[m
+Author: pavelKuklin <pavelkuklinweb@gmail.com>
+Date:   Fri Mar 13 11:15:22 2020 +0500
+
+    подарок ссделал
+
+[33mcommit 4319f0b060f48af214aa23f42cd6370c51e0d16a[m
+Author: pavelKuklin <pavelkuklinweb@gmail.com>
+Date:   Fri Mar 13 11:04:06 2020 +0500
+
+    модальные окна
+
+[33mcommit 6b2942a1adc3dea704e3d81fbcfa99b56452ada6[m
+Author: Pavel Kuklin <trb34074@yandeex.ru>
+Date:   Fri Mar 13 07:40:23 2020 +0500
+
+    пофиксил подарок
+
+[33mcommit 054603d2d32d5e7aca8ec7ca2a64af312317c8dc[m
+Author: Pavel Kuklin <trb34074@yandeex.ru>
+Date:   Fri Mar 13 07:32:42 2020 +0500
+
+    загрузил главный слайдер
+
+[33mcommit ee48dee2fd5074bb4048345f63bdb21be797606e[m
+Author: Pavel Kuklin <trb34074@yandeex.ru>
+Date:   Thu Mar 12 23:28:02 2020 +0500
+
+    исправил недочеты
+
+[33mcommit 8cd93fe2e9ee0059f2773ceae0d6f7140653a2f1[m
+Author: Pavel Kuklin <trb34074@yandeex.ru>
+Date:   Thu Mar 12 23:03:42 2020 +0500
+
+    сделал кнопку скролла, меню бургер и при скролле
+
+[33mcommit a94b13e36fb5a4848a9c58c280c2b04c277a811f[m
+Author: Pavel Kuklin <trb34074@yandeex.ru>
+Date:   Thu Mar 12 20:46:03 2020 +0500
+
+    настроил вебпак дев
+
+[33mcommit 7789ca1635fa4d752eeccd7220c13608028e9a0c[m
+Author: pavelKuklin <pavelkuklinweb@gmail.com>
+Date:   Thu Mar 12 17:47:47 2020 +0500
+
+    загрузил вебпак и настроил первую стадию в проект
+
+[33mcommit fa0bc1f01cbdc137de86cc6df7361feed80291a8[m
+Author: pavelKuklin <pavelkuklinweb@gmail.com>
+Date:   Thu Mar 12 17:37:24 2020 +0500
+
+    first commit

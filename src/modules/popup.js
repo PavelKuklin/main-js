@@ -29,7 +29,7 @@ const popup = () => {
             switchPopup(callbackForm);
         } else if (freeVisitForm.classList.contains('show') && !target.getAttribute('data-popup') && !target.closest('.form-content')) {
             switchPopup(freeVisitForm);
-        } else if (gift.classList.contains('show') && !target.getAttribute('data-popup') && !target.closest('.form-content')) {
+        } else if ((gift && gift.classList.contains('show')) && !target.getAttribute('data-popup') && !target.closest('.form-content')) {
             switchPopup(gift);
         }
 

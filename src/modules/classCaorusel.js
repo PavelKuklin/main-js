@@ -109,8 +109,10 @@ class SliderCarusel {
   }
 
   controlSlider() {
-    this.prev.addEventListener('click', this.prevSlider.bind(this));
-    this.next.addEventListener('click', this.nextSlider.bind(this));
+    if (this.prev && this.next) {
+      this.prev.addEventListener('click', this.prevSlider.bind(this));
+      this.next.addEventListener('click', this.nextSlider.bind(this));
+    }
   }
 
   prevSlider() {
@@ -134,14 +136,16 @@ class SliderCarusel {
   }
 
   addArrow() {
-    this.prev = document.createElement('button');
-    this.next = document.createElement('button');
+    if (this.prev && this.next) {
+      this.prev = document.createElement('button');
+      this.next = document.createElement('button');
 
-    this.prev.className = 'glo-slider__prev';
-    this.next.className = 'glo-slider__next';
+      this.prev.className = 'glo-slider__prev';
+      this.next.className = 'glo-slider__next';
 
-    this.arrowWrap.append(this.prev);
-    this.arrowWrap.append(this.next);
+      this.arrowWrap.append(this.prev);
+      this.arrowWrap.append(this.next);
+    }
   }
 
   responseInit() {
