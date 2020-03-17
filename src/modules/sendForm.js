@@ -87,8 +87,15 @@ const sendForm = (selector) => {
                     throw new Error('error');
                 }
                 successWindow.classList.add('show');
+                setTimeout(() => {
+                    successWindow.classList.remove('show');
+                }, 5000);
             }).catch(() => {
                 errorsWindow.classList.add('show');
+                setTimeout(() => {
+                    errorsWindow.classList.remove('show');
+                }, 5000);
+
             }).finally(() => {
                 item.reset();
             });
