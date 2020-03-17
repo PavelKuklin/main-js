@@ -127,4 +127,5 @@ const calc = () => {
 };
 
 export default calc;
+//фиксил
 
