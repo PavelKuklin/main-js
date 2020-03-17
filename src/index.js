@@ -16,7 +16,8 @@ sendForm('#banner-form');
 sendForm('#form1');
 sendForm('#form2');
 sendForm('#footer_form');
+sendForm('.card-order-mozaika');
+sendForm('.card-order-schelkovo');
 mycarousel();
 calc();
-
 services();
