@@ -1,14 +1,22 @@
+import maskPhone from './maskPhone';
+maskPhone('#callback_form-phone');
+
 const calc = () => {
   const form = document.querySelector('#card_order'),
     time = form.querySelectorAll('.time>input'),
     club = form.querySelectorAll('.club>input'),
     priceMessage = form.querySelector('.price-message>input'),
-    priceTotal = form.querySelector('#price-total');
+    priceTotal = form.querySelector('#price-total'),
+    personalData = form.querySelector('.personal-data>input'),
+    inputText = form.querySelectorAll('.input-text>input'),
+    successWindow = document.getElementById('thanks'),
+    errorsWindow = document.getElementById('errors');
 
   let prices = {},
     currentClub = '',
     currentInput = '',
-    price;
+    price,
+    sendMessage = {};
 
   //получаем данные из файла
   const getPrice = () => {
@@ -58,12 +66,64 @@ const calc = () => {
     priceTotal.textContent = price;
   };
 
+  const getInfo = () => {
+    inputText.forEach(item => {
+      if (item.name === 'phone') {
+        sendMessage.phone = item.value;
+      } else if (item.name === 'name' && item.placeholder !== 'Промокод') {
+        sendMessage.name = item.value;
+      }
+    })
+    sendMessage.club = currentClub;
+    sendMessage.price = `${price} рублей`;
+
+    console.log(sendMessage);
+
+  }
+
   form.addEventListener('input', (event) => {
     let target = event.target;
     getValues(target);
     setPrice();
-  });
 
+  });
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!personalData.checked) {
+      alert('Подтвердите ваше согласие на обработку данных')
+      return
+    }
+
+    inputText.forEach(item => {
+      if (item.value.trim() === '' && ((item.name === 'name' && item.placeholder !== 'Промокод') || item.name === 'phone')) {
+        alert('заполните поля');
+        return;
+      }
+    })
+
+    getInfo();
+
+    const postData = (body) => {
+      return fetch('./server.php', {
+        method: 'POST',
+        header: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      });
+
+    };
+    postData(sendMessage).then((resolve) => {
+      if (resolve.status !== 200) {
+        throw new Error('error');
+      }
+      successWindow.classList.add('show');
+    }).catch(() => {
+      errorsWindow.classList.add('show');
+    }).finally(() => {
+      form.reset();
+    });
+  });
 };
 
 export default calc;
