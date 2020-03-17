@@ -5,7 +5,8 @@ const popup = () => {
         gift = document.getElementById('gift'),
         giftBtn = document.querySelector('.fixed-gift'),
         errorsWindow = document.getElementById('errors'),
-        successWindow = document.getElementById('thanks');
+        successWindow = document.getElementById('thanks'),
+        popupWindow = document.querySelector('.popup');
 
     const switchPopup = (selector) => {
         selector.classList.toggle('show');
@@ -32,8 +33,11 @@ const popup = () => {
             switchPopup(gift);
         }
 
-        if (target.matches('.close-btn')) {
+        if (target.matches('.close-btn') || (popupWindow.classList.contains('show') && !target.closest('.popup'))) {
             switchPopup(target.parentElement.parentElement.parentElement);
+            if (popupWindow.classList('show')) {
+                switchPopup(popupWindow);
+            }
         }
         //окно с подарком 
         if (target.closest('.fixed-gift')) {
