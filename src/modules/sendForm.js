@@ -35,7 +35,7 @@ const sendForm = () => {
             let validPhone = true,
                 validName = true,
                 validDate = true;
-            if (name && (name.value.trim() === '')) {
+            if (name && name.value.trim() === '') {
                 name.classList.add('error');
                 validName = false;
             } else if (name && ((name.value == undefined || name.value.trim() !== '') && name.classList.contains('error'))) {

@@ -152,8 +152,6 @@ const gallyry = () => {
 
         //точки
         if (target.closest('.slider-dot')) {
-            console.log(dots);
-
             dots.forEach((item, index) => {
                 if (item === target) {
                     prevSlide(slide, currentSlide, 'slideOpasity');

@@ -35,7 +35,6 @@ const menu = () => {
       }
 
       if (headMain.getBoundingClientRect().bottom > topMenu.getBoundingClientRect().top) {
-        console.log('fgd');
         topMenu.style.cssText = `position: relative;`
       };
     } else {
