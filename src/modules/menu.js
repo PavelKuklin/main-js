@@ -18,7 +18,7 @@ const menu = () => {
       clubsListLinks.classList.toggle('show');
     } else if (target.closest('.menu-button__image')) {
       popupMenu.style.display = 'flex';
-    } else if (target.closest('.close-menu-btn')) {
+    } else if (target.closest('.close-menu-btn') || target.closest('.scroll')) {
       popupMenu.style.display = 'none';
     }
   };

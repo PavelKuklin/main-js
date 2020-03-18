@@ -13,12 +13,11 @@ menu();
 mainSlider();
 gallyry();
 mycarousel();
-calc();
-services();
-
 sendForm('#banner-form');
 sendForm('#form1');
 sendForm('#form2');
 sendForm('#footer_form');
-//sendForm('.card-order-mozaika');
-//sendForm('.card-order-schelkovo');
+if (window.location.toString().indexOf('index.html') > 0) {
+  calc();
+}
+services();

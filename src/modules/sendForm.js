@@ -68,9 +68,6 @@ const sendForm = (selector) => {
             for (let val of formData.entries()) {
                 body[val[0]] = val[1];
             }
-            // if (priceTotal) {
-            //     body.price = priceTotal.textContent;
-            // }
 
             const postData = (body) => {
                 return fetch('./server.php', {
@@ -87,14 +84,8 @@ const sendForm = (selector) => {
                     throw new Error('error');
                 }
                 successWindow.classList.add('show');
-                setTimeout(() => {
-                    successWindow.classList.remove('show');
-                }, 5000);
             }).catch(() => {
                 errorsWindow.classList.add('show');
-                setTimeout(() => {
-                    errorsWindow.classList.remove('show');
-                }, 5000);
 
             }).finally(() => {
                 item.reset();

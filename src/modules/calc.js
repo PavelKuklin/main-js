@@ -2,7 +2,7 @@ import maskPhone from './maskPhone';
 maskPhone('#callback_form-phone');
 
 const calc = () => {
-    const form = document.querySelector('#card_order'),
+    const form = document.querySelector('.card_order'),
         time = form.querySelectorAll('.time>input'),
         club = form.querySelectorAll('.club>input'),
         priceMessage = form.querySelector('.price-message>input'),
@@ -38,7 +38,7 @@ const calc = () => {
         getValues();
         setPrice();
 
-    }).catch(() => {});
+    }).catch(() => { });
 
     const getValues = (target) => {
         if (club) {
@@ -58,7 +58,6 @@ const calc = () => {
         if (currentClub && currentInput) {
             price = prices[currentClub][currentInput];
         }
-
 
     };
 
@@ -93,43 +92,44 @@ const calc = () => {
         setPrice();
 
     });
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        if (!personalData.checked) {
-            alert('Подтвердите ваше согласие на обработку данных')
-            return
-        }
 
-        inputText.forEach(item => {
-            if (item.value.trim() === '' && ((item.name === 'name' && item.placeholder !== 'Промокод') || item.name === 'phone')) {
-                alert('заполните поля');
-                return;
-            }
-        })
+    // form.addEventListener('submit', (event) => {
+    //     event.preventDefault();
+    //     if (!personalData.checked) {
+    //         alert('Подтвердите ваше согласие на обработку данных')
+    //         return
+    //     }
 
-        getInfo();
+    //     inputText.forEach(item => {
+    //         if (item.value.trim() === '' && ((item.name === 'name' && item.placeholder !== 'Промокод') || item.name === 'phone')) {
+    //             alert('заполните поля');
+    //             return;
+    //         }
+    //     })
 
-        const postData = (body) => {
-            return fetch('./server.php', {
-                method: 'POST',
-                header: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(body),
-            });
+    //     getInfo();
 
-        };
-        postData(sendMessage).then((resolve) => {
-            if (resolve.status !== 200) {
-                throw new Error('error');
-            }
-            successWindow.classList.add('show');
-        }).catch(() => {
-            errorsWindow.classList.add('show');
-        }).finally(() => {
-            form.reset();
-        });
-    });
+    //     const postData = (body) => {
+    //         return fetch('./server.php', {
+    //             method: 'POST',
+    //             header: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify(body),
+    //         });
+
+    //     };
+    //     postData(sendMessage).then((resolve) => {
+    //         if (resolve.status !== 200) {
+    //             throw new Error('error');
+    //         }
+    //         successWindow.classList.add('show');
+    //     }).catch(() => {
+    //         errorsWindow.classList.add('show');
+    //     }).finally(() => {
+    //         form.reset();
+    //     });
+    // });
 };
 
 export default calc;

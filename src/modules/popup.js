@@ -35,14 +35,20 @@ const popup = () => {
 
         if (target.matches('.close-btn') || (popupWindow.classList.contains('show') && !target.closest('.popup'))) {
             switchPopup(target.parentElement.parentElement.parentElement);
-            if (popupWindow.classList('show')) {
-                switchPopup(popupWindow);
+            if (popupWindow.classList.contains('show')) {
+                switchPopup(target.parentElement.parentElement.parentElement);
             }
         }
         //окно с подарком 
         if (target.closest('.fixed-gift')) {
             giftBtn.style.display = 'none';
             switchPopup(gift);
+        }
+        if (errorsWindow && errorsWindow.classList.contains('show') && !target.closest('.form-content')) {
+            switchPopup(errors);
+        }
+        if (successWindow && successWindow.classList.contains('show') && !target.closest('.form-content')) {
+            switchPopup(successWindow);
         }
 
     };
