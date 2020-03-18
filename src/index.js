@@ -13,10 +13,7 @@ menu();
 mainSlider();
 gallyry();
 mycarousel();
-sendForm('#banner-form');
-sendForm('#form1');
-sendForm('#form2');
-sendForm('#footer_form');
+sendForm();
 if (window.location.toString().indexOf('index.html') > 0) {
   calc();
 }
