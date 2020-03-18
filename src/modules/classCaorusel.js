@@ -1,65 +1,62 @@
 class SliderCarusel {
-  constructor({
-    main,
-    wrap,
-    next,
-    prev,
-    arrowWrap,
-    infinity = false,
-    position = 0,
-    slidesToShow = 3,
-    responsive = [],
+    constructor({
+        main,
+        wrap,
+        next,
+        prev,
+        arrowWrap,
+        infinity = false,
+        position = 0,
+        slidesToShow = 3,
+        responsive = [],
 
-  }) {
-    if (!this.main || !this.wrap) {
-      console.warn('slider-carusel Необходимо 2 свойства,"main" и "wrap" ');
+    }) {
+        this.main = document.querySelector(main);
+        this.wrap = document.querySelector(wrap);
+        this.arrowWrap = this.main.querySelector(arrowWrap);
+        this.slides = document.querySelector(wrap).children;
+        this.next = document.querySelector(next);
+        this.prev = document.querySelector(prev);
+        this.slidesToShow = slidesToShow;
+        this.options = {
+            position,
+            infinity,
+            widthSlide: Math.floor(100 / this.slidesToShow),
+            maxPosition: this.slides.length - this.slidesToShow,
+        };
+        this.responsive = responsive;
     }
-    this.main = document.querySelector(main);
-    this.wrap = document.querySelector(wrap);
-    this.arrowWrap = this.main.querySelector(arrowWrap);
-    this.slides = document.querySelector(wrap).children;
-    this.next = document.querySelector(next);
-    this.prev = document.querySelector(prev);
-    this.slidesToShow = slidesToShow;
-    this.options = {
-      position,
-      infinity,
-      widthSlide: Math.floor(100 / this.slidesToShow),
-      maxPosition: this.slides.length - this.slidesToShow,
-    };
-    this.responsive = responsive;
-  }
 
-  init() {
-    this.addGloClass();
-    this.addStyle();
+    init() {
+        this.addGloClass();
+        this.addStyle();
 
-    if (this.prev && this.next) {
-      this.controlSlider();
-    } else {
-      this.addArrow();
-      this.controlSlider();
+        if (this.prev && this.next) {
+            this.controlSlider();
+        } else {
+            this.addArrow();
+            this.controlSlider();
+        }
+        if (this.responsive) {
+            this.responseInit();
+        }
     }
-    if (this.responsive) {
-      this.responseInit();
-    }
-  }
 
-  addGloClass() {
-    this.main.classList.add('glo-slider');
-    this.wrap.classList.add('glo-slider__wrap');
-    for (const item of this.slides) {
-      item.classList.add('glo-slider__item');
+    addGloClass() {
+        this.main.classList.add('glo-slider');
+        this.wrap.classList.add('glo-slider__wrap');
+        for (const item of this.slides) {
+            item.classList.add('glo-slider__item');
+        }
     }
-  }
 
-  addStyle() {
-    let style = document.querySelector('#sliderCarusel-style');
-    if (!style) {
-      style = document.createElement('style');
-      style.id = 'sliderCarusel-style';
-    }
-    style.textContent = `
+    addStyle() {
+        let style = document.querySelector('#sliderCarusel-style');
+        if (!style) {
+            style = document.createElement('style');
+            style.id = 'sliderCarusel-style';
+        }
+        style.textContent = `
     .wrapper {
       overflow: hidden;
     }
@@ -105,75 +102,75 @@ class SliderCarusel {
       background: transparent;
     }
     `;
-    document.head.append(style);
-  }
-
-  controlSlider() {
-    if (this.prev && this.next) {
-      this.prev.addEventListener('click', this.prevSlider.bind(this));
-      this.next.addEventListener('click', this.nextSlider.bind(this));
+        document.head.append(style);
     }
-  }
 
-  prevSlider() {
-    if (this.options.infinity || +this.options.position > 0) {
-      --this.options.position;
-      if (+this.options.position < 0) {
-        this.options.position = this.options.maxPosition;
-      }
-      this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
-    }
-  }
-
-  nextSlider() {
-    if (this.options.infinity || +this.options.position < this.options.maxPosition) {
-      ++this.options.position;
-      if (this.options.position > (this.slides.length - this.slidesToShow)) {
-        this.options.position = 0;
-      }
-      this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
-    }
-  }
-
-  addArrow() {
-    if (this.arrowWrap) {
-      this.prev = document.createElement('button');
-      this.next = document.createElement('button');
-
-      this.prev.className = 'glo-slider__prev';
-      this.next.className = 'glo-slider__next';
-
-      this.arrowWrap.append(this.prev);
-      this.arrowWrap.append(this.next);
-    }
-  }
-
-  responseInit() {
-    const slidesToShowDefault = this.slidesToShow,
-      allRespone = this.responsive.map(item => item.breackpoint),
-      maxResponse = Math.max(...allRespone);
-
-    const checkResponse = () => {
-      const widthWindow = document.documentElement.clientWidth;
-      if (widthWindow < maxResponse) {
-        for (let i = 0; i < allRespone.length; i++) {
-          if (widthWindow < allRespone[i]) {
-            this.slidesToShow = this.responsive[i].slideToShow;
-            this.options.widthSlide = Math.floor(100 / this.slidesToShow);
-            this.addStyle();
-          }
+    controlSlider() {
+        if (this.prev && this.next) {
+            this.prev.addEventListener('click', this.prevSlider.bind(this));
+            this.next.addEventListener('click', this.nextSlider.bind(this));
         }
-      } else {
-        this.slidesToShow = slidesToShowDefault;
-        this.options.widthSlide = Math.floor(100 / this.slidesToShow);
-        this.addStyle();
-      }
-    };
+    }
 
-    checkResponse();
+    prevSlider() {
+        if (this.options.infinity || +this.options.position > 0) {
+            --this.options.position;
+            if (+this.options.position < 0) {
+                this.options.position = this.options.maxPosition;
+            }
+            this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
+        }
+    }
 
-    window.addEventListener('resize', checkResponse);
-  }
+    nextSlider() {
+        if (this.options.infinity || +this.options.position < this.options.maxPosition) {
+            ++this.options.position;
+            if (this.options.position > (this.slides.length - this.slidesToShow)) {
+                this.options.position = 0;
+            }
+            this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
+        }
+    }
+
+    addArrow() {
+        if (this.arrowWrap) {
+            this.prev = document.createElement('button');
+            this.next = document.createElement('button');
+
+            this.prev.className = 'glo-slider__prev';
+            this.next.className = 'glo-slider__next';
+
+            this.arrowWrap.append(this.prev);
+            this.arrowWrap.append(this.next);
+        }
+    }
+
+    responseInit() {
+        const slidesToShowDefault = this.slidesToShow,
+            allRespone = this.responsive.map(item => item.breackpoint),
+            maxResponse = Math.max(...allRespone);
+
+        const checkResponse = () => {
+            const widthWindow = document.documentElement.clientWidth;
+            if (widthWindow < maxResponse) {
+                for (let i = 0; i < allRespone.length; i++) {
+                    if (widthWindow < allRespone[i]) {
+                        this.slidesToShow = this.responsive[i].slideToShow;
+                        this.options.widthSlide = Math.floor(100 / this.slidesToShow);
+                        this.addStyle();
+                    }
+                }
+            } else {
+                this.slidesToShow = slidesToShowDefault;
+                this.options.widthSlide = Math.floor(100 / this.slidesToShow);
+                this.addStyle();
+            }
+        };
+
+        checkResponse();
+
+        window.addEventListener('resize', checkResponse);
+    }
 }
 
 export default SliderCarusel;
