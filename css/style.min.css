@@ -2619,3 +2619,7 @@ p.personal-data input[type=checkbox]:checked+label:before {
 .dots-active {
     background-color: rgb(248, 183, 2) !important;
 }
+
+.error {
+    border: 2px solid red !important;
+}

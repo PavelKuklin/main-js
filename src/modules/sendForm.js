@@ -6,11 +6,11 @@ const sendForm = () => {
         errorsWindow = document.querySelector('#errors');
 
 
-
     form.forEach(item => {
         let name,
             phone,
-            personalData;
+            personalData,
+            personalDataLabel;
 
         let formItems = item.querySelectorAll('input');
         getItems(formItems);
@@ -25,6 +25,7 @@ const sendForm = () => {
                     maskPhone(`#${item.id}`);
                 } else if (item.parentElement.classList.contains('personal-data')) {
                     personalData = item;
+                    personalDataLabel = item.parentElement.querySelector('label');
                 }
             });
         };
@@ -34,15 +35,25 @@ const sendForm = () => {
             let validPhone = true,
                 validName = true,
                 validDate = true;
-
-            if (+phone.value.length !== 18) {
-                validPhone = false;
-            }
-            if (name && (name.value == undefined || name.value.trim() === '')) {
+            if (name && (name.value.trim() === '')) {
+                name.classList.add('error');
                 validName = false;
+            } else if (name && ((name.value == undefined || name.value.trim() !== '') && name.classList.contains('error'))) {
+                name.classList.remove('error');
+                name = true;
+            }
+            if (+phone.value.length !== 18) {
+                phone.classList.add('error');
+                validPhone = false;
+            } else if (+phone.value.length === 18 && phone.classList.contains('error')) {
+                phone.classList.remove('error');
+                validPhone = true;
             }
             if (personalData && !personalData.checked) {
+                personalDataLabel.style.color = 'red';
                 validDate = false;
+            } else if (personalData && personalData.checked) {
+                personalDataLabel.style.color = '#94939a';
             }
             if (validPhone && validName && validDate) {
                 return true;
@@ -50,15 +61,11 @@ const sendForm = () => {
                 return false;
             }
         }
-        console.log(form);
 
         item.addEventListener('submit', (event) => {
             event.preventDefault();
 
-
-
             if (!myValidate()) {
-                alert('заполните поля')
                 return;
             }
 

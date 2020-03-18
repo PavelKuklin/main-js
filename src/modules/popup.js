@@ -51,10 +51,7 @@ const popup = () => {
             switchPopup(successWindow);
         }
 
-
-
     };
-
 
     body.addEventListener('click', openPopup);
 
