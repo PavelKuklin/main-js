@@ -136,7 +136,7 @@ class SliderCarusel {
   }
 
   addArrow() {
-    if (this.prev && this.next) {
+    if (this.arrowWrap) {
       this.prev = document.createElement('button');
       this.next = document.createElement('button');
 
